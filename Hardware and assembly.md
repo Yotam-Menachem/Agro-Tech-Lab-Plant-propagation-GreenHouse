@@ -1,9 +1,8 @@
 # Agro-Tech-Lab-Plant-propagation-GreenHouse
 Welcome to our final project in the Agro-Lab course 
 
-# Agro-Tech-Lab-Plant-propagation-GreenHouse
+# If you would like to make this project by yourself this is what you'll need:
 
-#If you would like to make this project by yourself this is what you'll need:
 
 1. 1 X [ESP32](https://he.aliexpress.com/item/1005003818247483.html?spm=a2g0o.productlist.0.0.755710d1jXgc9F&algo_pvid=285495db-7b43-4cc5-bc67-508cdd252f7d&algo_exp_id=285495db-7b43-4cc5-bc67-508cdd252f7d-15&pdp_ext_f=%7B%22sku_id%22%3A%2212000027263733305%22%7D&pdp_npi=2%40dis%21ILS%21%216.46%21%21%21%21%21%402100bddf16578052994232769e06b1%2112000027263733305%21sea&gatewayAdapt=glo2isr)
 2. 1 X [Relay 5V - 4 Channels](https://he.aliexpress.com/item/1005004968030652.html?spm=a2g0o.productlist.main.47.57cfJ1L1J1L13s&algo_pvid=43924125-d89b-479f-b3fc-e9b64585046d&algo_exp_id=43924125-d89b-479f-b3fc-e9b64585046d-23&pdp_npi=3%40dis%21ILS%216.5%214.48%21%21%21%21%21%400b0a558a16865572273001677d0778%2112000031188054608%21sea%21IL%212183826556&curPageLogUid=JY4NeeivKjoX)
