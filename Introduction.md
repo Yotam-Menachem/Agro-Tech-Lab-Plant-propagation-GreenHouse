@@ -35,7 +35,7 @@ To replicate this project, follow these steps:
 
 ## Contributors
 
-- [Yotam Menachem](https://github.com/Yotam-Menachem), [Orel Suliman].
+- [Orel Suliman](https://github.com/orelsoli77), [Yotam Menachem](https://github.com/Yotam-Menachem).
 
 
 Feel free to customize this README.md file as per your project's requirements, add relevant images, and provide any additional details or instructions necessary for others to replicate your project successfully. Good luck with your plant propagation greenhouse!
