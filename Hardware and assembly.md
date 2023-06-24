@@ -13,3 +13,21 @@ Welcome to our final project in the Agro-Lab course
 7. 3 X [Solenoid valve - AC 220V DC 12V "1/2](https://he.aliexpress.com/item/1005005244510404.html?spm=a2g0o.productlist.main.11.40260oNn0oNnSW&algo_pvid=acd3bfec-322c-4e79-9431-6045fddcfeda&algo_exp_id=acd3bfec-322c-4e79-9431-6045fddcfeda-5&pdp_npi=3%40dis%21ILS%2143.25%2113.4%21%21%21%21%21%40211bf3f116865579903736896d080f%2112000032343782698%21sea%21IL%212183826556&curPageLogUid=JKWGlp0MsLCN)
 8. 1 X [WaterProof temperature sensor for Soil Tempertures measurments](https://www.aliexpress.com/item/1005004749824945.html?spm=a2g0n.productlist.0.0.7edf5c6eJkoaMk&browser_id=16cb536eb4db4e1a9fada11e78dc7e87&aff_platform=msite&m_page_id=aozygwtthaqcacby188aec474d8211a3b0982b32cc&gclid=&pdp_npi=3%40dis%21ILS%218.04%215.21%21%21%21%21%21%402102111816865592905923258d07ee%2112000030333236887%21sea%21IL%212183826556&algo_pvid=3d7f3007-cf95-4f52-9f19-e3f4fe425482)
 9. [A lot of Jumpers](https://he.aliexpress.com/item/1005003252824475.html?spm=a2g0o.search0304.0.0.5fab692f1DqEZK&algo_pvid=a722cf1e-c2ba-4fde-b94f-ef8fe25a6ce9&algo_exp_id=a722cf1e-c2ba-4fde-b94f-ef8fe25a6ce9-13&pdp_ext_f=%7B%22sku_id%22%3A%2212000024867532507%22%7D&pdp_npi=2%40dis%21ILS%21%2114.17%21%21%211.38%21%21%400b0a187b16578059214857204e2875%2112000024867532507%21sea&gatewayAdapt=glo2isr)
+
+# Project Components
+
+To successfully complete this Arduino project using the ESP-32, you will need to gather the following components:
+
+1. Relay: A relay module allows you to control high-power devices using a low-power signal from the ESP-32. This [tutorial](https://randomnerdtutorials.com/esp32-relay-module-ac-web-server/) provides information on how to connect and utilize a relay with the ESP-32.
+
+2. Brushless DC Fans: These fans are commonly used for cooling purposes in various projects. This [tutorial](https://esp32io.com/tutorials/esp32-controls-fan) will guide you on how to control brushless DC fans with the ESP-32.
+
+3. SHT31 - Waterproof Temperature and Humidity Sensor: The SHT31 sensor is capable of measuring temperature and humidity in harsh environments. You can learn more about this sensor and its connection to the ESP-32 in the [DFRobot Wiki](https://wiki.dfrobot.com/SHT31_Temperature_Humidity_Sensor_Weatherproof_SKU_SEN0385).
+
+4. FDR - Frequency-Domain Sensor: The FDR sensor is commonly used for soil moisture measurements. This [tutorial](https://esp32io.com/tutorials/esp32-soil-moisture-sensor) will provide you with information on how to interface and utilize the FDR sensor with the ESP-32.
+
+5. Solenoid Valve - AC 220V DC 12V "1/2": This solenoid valve allows you to control the flow of water or other liquids using the ESP-32. The [tutorial](https://esp32io.com/tutorials/esp32-water-liquid-valve) explains the connection and usage of this valve with the ESP-32.
+
+6. DS18B20 - Waterproof Temperature Sensor for Soil Temperature Measurements: The DS18B20 sensor is specifically designed for measuring soil temperature. This [tutorial](https://www.electronicwings.com/esp32/ds18b20-sensor-interfacing-with-esp32) provides information on how to interface the DS18B20 sensor with the ESP-32.
+
+Please refer to the provided links for further details on connecting and utilizing these components in your Arduino project.
