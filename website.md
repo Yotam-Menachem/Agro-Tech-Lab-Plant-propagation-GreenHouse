@@ -7,8 +7,5 @@ Integrating an HTML webpage with an Arduino project allows you to display sensor
 
 you can see how we used HTML webpage in our [code](https://github.com/Yotam-Menachem/Agro-Tech-Lab-Plant-propagation-GreenHouse/blob/main/code.ino) file 
 
-this is how our website is look like: 
-<p align="center">
-<img src="C:\Users\yotammen\OneDrive - ARO Volcani Center\Desktop\סמסטר ב\agrotechlab\webpage.jpeg">
-</p>
-
+this is how our website is look like:
+![732620b3-a438-4411-9b37-ca182496e721](https://github.com/Yotam-Menachem/Agro-Tech-Lab-Plant-propagation-GreenHouse/assets/106580952/8e6210df-8e94-4f68-aa8e-bcda4e80c8ac)
