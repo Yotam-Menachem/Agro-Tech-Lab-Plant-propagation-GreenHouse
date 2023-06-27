@@ -9,3 +9,4 @@ you can see how we used HTML webpage in our [code](https://github.com/Yotam-Mena
 
 this is how our website is look like:
 ![732620b3-a438-4411-9b37-ca182496e721](https://github.com/Yotam-Menachem/Agro-Tech-Lab-Plant-propagation-GreenHouse/assets/106580952/8e6210df-8e94-4f68-aa8e-bcda4e80c8ac)
+
