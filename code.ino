@@ -18,15 +18,15 @@ float temp_soil; // temperature in Celsius
 
 
 Adafruit_SHT31 sht31 = Adafruit_SHT31();
-const int RELAY_PIN4 = A3; //fans
-const int RELAY_PIN3 = D10; //irrigation
-const int RELAY_PIN2 = D11;
-const int RELAY_PIN1 = D10;
+const int RELAY_PIN1 = A4; //fans for cooling
+const int RELAY_PIN2 = D12; //water for cooling
+const int RELAY_PIN3 = D11; // sprinkles
+const int RELAY_PIN4 = D10; // irrigation
 
 bool executeCuttingsCode = false; // A boolean variable to indicate if the cuttings code should be executed or not
 bool executeEmergenceCode = false; // A boolean variable to indicate if the emergence code should be executed or not
 
-const char* ssid = "ESP32_AP"; // The SSID (network name) for the ESP32 access point mode
+const char* ssid = "Greeny"; // The SSID (network name) for the ESP32 access point mode
 const char* password = "password123"; // The password for the ESP32 access point mode
 
 WebServer server(80); // Create a WebServer object listening on port 80
@@ -36,26 +36,30 @@ const char* htmlPage = R"html(
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ESP32 Control Panel</title>
+  <title>Greeny Control Panel</title>
   <style>
     body {
+      background-color: #a1b89a;
       background-size: cover;
       background-position: center;
       font-family: Arial, sans-serif;
       text-align: center;
     }
+
     h1 {
       font-size: 48px;
       color: #333333;
       margin-top: 100px;
     }
+
     .button-container {
       display: flex;
       justify-content: center;
       margin-top: 50px;
     }
+
     .button {
-      background-color: #4CAF50;
+      background-color: #b59090;
       color: #ffffff;
       border: none;
       padding: 16px 32px;
@@ -66,17 +70,25 @@ const char* htmlPage = R"html(
       margin: 10px;
       cursor: pointer;
     }
+
     .button-description {
       font-size: 18px;
       color: #666666;
     }
+
     #environmental {
       font-size: 24px;
       color: #666666;
       margin-top: 50px;
     }
+
     #temperature,
     #humidity {
+      font-size: 36px;
+      color: #333333;
+    }
+
+    #soilHumidity {
       font-size: 36px;
       color: #333333;
     }
@@ -88,13 +100,14 @@ const char* htmlPage = R"html(
         .then(data => {
           document.getElementById('temperature').innerText = data.temperature;
           document.getElementById('humidity').innerText = data.humidity;
+        document.getElementById('soilHumidity').innerText = data.soilHumidity;
         });
     }
     setInterval(updateData, 1000); // Update data every 1 second
   </script>
 </head>
 <body>
-  <h1>Welcome to ESP32 Control Panel</h1>
+  <h1>Welcome to Greeny Control Panel</h1>
   <div class="button-container">
     <div>
       <button class="button" onclick="cuttingsButton()">CUTTINGS</button>
@@ -105,15 +118,17 @@ const char* htmlPage = R"html(
       <p class="button-description">Emergence of seeds</p>
     </div>
   </div>
-  <h2 id="environmental">Environmental</h2>
+  <h2 id="environmental">Environment</h2>
   <h2>Temperature: <span id="temperature"></span> °C</h2>
   <h2>Humidity: <span id="humidity"></span> %</h2>
+  <h2>Soil Humidity: <span id="soilHumidity"></span> %</h2>
   
   <script>
     function cuttingsButton() {
       alert("CUTTINGS button pressed!");
       window.location.href = "/cuttings";
     }
+    
     function emergenceButton() {
       alert("EMERGENCE button pressed!");
       window.location.href = "/emergence";
@@ -137,14 +152,15 @@ void handleCuttings() {
 void handleEmergence() {
   executeEmergenceCode = true; // Set the executeEmergenceCode variable to true
   executeCuttingsCode = false; // Set the executeCuttingsCode variable to false
-  server.send(200, "text/html", "<h1>EMERGENCE button pressed!</h1>"); // Send an HTTP response with status code 200, content type "text/html", and send the message "<h1>EMERGENCE button pressed!</h1>" as the response body
+  server.send(200, "text/html", "<h1>SEEDS button pressed!</h1>"); // Send an HTTP response with status code 200, content type "text/html", and send the message "<h1>EMERGENCE button pressed!</h1>" as the response body
 }
 
 void handleData() {
   float t = sht31.readTemperature(); // Read the temperature value from the SHT31 sensor and store it in the variable t
   float h = sht31.readHumidity(); // Read the humidity value from the SHT31 sensor and store it in the variable h
-
-  String json = "{\"temperature\":" + String(t) + ",\"humidity\":" + String(h) + "}"; // Create a JSON string containing the temperature and humidity values
+  float h_s=analogRead(A2);
+  float liveSoilHumidity = (h_s / 460.0) * 100.0;
+  String json = "{\"temperature\":" + String(t) + ",\"humidity\":" + String(h) + ",\"soilHumidity\":" + String(liveSoilHumidity) + "}"; //Create a JSON string containing the temperature and humidity values
   server.send(200, "application/json", json); // Send an HTTP response with status code 200, content type "application/json", and send the json string as the response body
 }
 
@@ -180,18 +196,7 @@ void setup() {
 
 void loop() {
   server.handleClient(); // Handle incoming client requests
-
-  //temp of soil 
   
-  DS18B20.requestTemperatures(); // Send a command to get the temperature of the soil
-  temp_soil = DS18B20.getTempCByIndex(0); // Read the temperature in °C of the soil
-  
-  Serial.print("temp of soil: ");
-  Serial.print(temp_soil); // Print the temperature of the soil in °C
-  Serial.println("°C");
-  
-  // end temp of soil
-
   float t = sht31.readTemperature(); // Read the temperature value from the SHT31 sensor
   float h = sht31.readHumidity(); // Read the humidity value from the SHT31 sensor
 
