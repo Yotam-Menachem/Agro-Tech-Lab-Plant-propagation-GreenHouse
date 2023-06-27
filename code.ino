@@ -204,15 +204,15 @@ void loop() {
     if (t < 25) {
       //Serial.println("temp is too low");
       if (executeCuttingsCode) { // turn on the fan
-        digitalWrite(RELAY_PIN4, LOW); // Turn off the fans
-        digitalWrite(RELAY_PIN3, LOW); // Turn off the cooling system
+        digitalWrite(RELAY_PIN1, LOW); // Turn off the fans
+        digitalWrite(RELAY_PIN2, LOW); // Turn off the cooling system
       }
     }
     if (t < 27) {
       //Serial.println("temp is too low");
       if (executeEmergenceCode) { // turn off the fan
-        digitalWrite(RELAY_PIN4, LOW); // Turn off the fans
-        digitalWrite(RELAY_PIN3, LOW); // Turn off the cooling system
+        digitalWrite(RELAY_PIN1, LOW); // Turn off the fans
+        digitalWrite(RELAY_PIN2, LOW); // Turn off the cooling system
       }
     }
     if (t > 25) {
@@ -220,8 +220,8 @@ void loop() {
       if (executeCuttingsCode) {
         Serial.println("Cutting button was pressed");
         // Code to execute when "Cutting" button is pressed
-        digitalWrite(RELAY_PIN4, HIGH); // Turn on the fans
-        digitalWrite(RELAY_PIN3, HIGH); // Turn on the cooling system
+        digitalWrite(RELAY_PIN1, HIGH); // Turn on the fans
+        digitalWrite(RELAY_PIN2, HIGH); // Turn on the cooling system
 
       }
     }
@@ -230,8 +230,8 @@ void loop() {
       if (executeEmergenceCode) {
         Serial.println("Emergence button was pressed");
         // Code to execute when "EMERGENCE" button is pressed
-        digitalWrite(RELAY_PIN4, HIGH); // Turn on the fans
-        digitalWrite(RELAY_PIN3, HIGH); // Turn on the cooling system
+        digitalWrite(RELAY_PIN1, HIGH); // Turn on the fans
+        digitalWrite(RELAY_PIN2, HIGH); // Turn on the cooling system
       }
     }
     Serial.print("Temp of enviroment = ");
@@ -244,27 +244,27 @@ void loop() {
         if (h > 80) {
       //Serial.println("Humidity is too high");
       if (executeCuttingsCode) {
-        digitalWrite(RELAY_PIN2, LOW); // Turn off the sprinklers
+        digitalWrite(RELAY_PIN3, LOW); // Turn off the sprinklers
         
       }
     }
     if (h > 50) {
       //Serial.println("Humidity is too high");
       if (executeEmergenceCode) { 
-        digitalWrite(RELAY_PIN2, LOW); // Turn off the sprinklers
+        digitalWrite(RELAY_PIN3, LOW); // Turn off the sprinklers
       }
     }
     if (h < 80) {
       //Serial.println("Humidity is too low");
       if (executeCuttingsCode) { 
-        digitalWrite(RELAY_PIN2, HIGH); // Turn on the sprinklers
+        digitalWrite(RELAY_PIN3, HIGH); // Turn on the sprinklers
         
       }
     }
     if (h < 50) {
       //Serial.println("Humidity is too low");
       if (executeEmergenceCode) {
-        digitalWrite(RELAY_PIN2, HIGH); // Turn on the sprinklers
+        digitalWrite(RELAY_PIN3, HIGH); // Turn on the sprinklers
       }
     }
     
@@ -282,7 +282,7 @@ void loop() {
       if ((h_s/460)*100 > 80) {
       //Serial.println("soil moisture is too high");
       if (executeCuttingsCode) {
-        digitalWrite(RELAY_PIN1, LOW); // Turn off the irrigation
+        digitalWrite(RELAY_PIN4, LOW); // Turn off the irrigation
         
       }
     }
@@ -290,27 +290,27 @@ void loop() {
     if ((h_s/460)*100 > 50) {
       //Serial.println("soil moisture is too high");
       if (executeEmergenceCode) { 
-        digitalWrite(RELAY_PIN1, LOW); // Turn off the irrigation
+        digitalWrite(RELAY_PIN4, LOW); // Turn off the irrigation
       }
     }
     if ((h_s/460)*100 < 80) {
       //Serial.println("soil moisture is too low");
       if (executeCuttingsCode) { 
-        digitalWrite(RELAY_PIN1, HIGH); // Turn on the irrigation
+        digitalWrite(RELAY_PIN4, HIGH); // Turn on the irrigation
         
       }
     }
     if ((h_s/460)*100 < 50) {
       //Serial.println("soil moisture is too low");
       if (executeEmergenceCode) {
-        digitalWrite(RELAY_PIN1, HIGH); // Turn on the irrigation
+        digitalWrite(RELAY_PIN4, HIGH); // Turn on the irrigation
       }
     }
     Serial.print("Hum. % = ");  // Print humidity label
     Serial.println((h_s/460)*100);           // Print humidity value
   } 
   else {
-    Serial.println("Failed to read humidity of soil");  // Print an error message if humidity reading fails
+    Serial.println("Failed to read soil moisture");  // Print an error message if humidity reading fails
   }
   //end of humidity of soil
 
